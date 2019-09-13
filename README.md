@@ -1,2 +1,105 @@
-# moodle-theme_bandeau
-Moodle theme to display quick actions in a banner.
+Bandeau Theme
+==================================
+Moodle theme and child of Boost theme. It will display courses recurrents actions as a banner in the course header block.
+
+Goal
+------------
+The theme goal was to make course actions more available for users (and especially managers) et to pass on "edit mode" more intuitively. <br/>
+It was also important for us to be able to display easily some personnal actions especially developped in the local/ folder without overload configuration menu ("engrenage" menu).
+
+Presentation
+------------
+- Specific menu in the course header block. It displays possible recurrent actions on a course grouped by type of action. 
+- Possibility to pass on "Edition mode" more easily.
+- Possibility to keep menu on the top of the page even we scroll on the course.
+- Possibility to add a block more easily without passing on the left menu
+- Displays in the header block bakground the picture choosed in the course configuration.
+- Using of a default course picture in dashboard blocks (since moodle 3.7 version).
+
+Pré-requis
+------------
+- Moodle 3.3 (build 2017051500) or later.<br/>
+-> Tests on Moodle 3.3 to 3.7 versions.<br/>
+
+Installation
+------------
+1. Local plugin installation
+
+- Git way:
+> git clone https://github.com/andurif/moodle-theme_bandeau.git bandeau
+
+- Download way:
+> Download the zip from https://github.com/andurif/moodle-theme_bandeau/archive/master.zip unzip it in theme/ folder and rename it "bandeau" if necessary.
+  
+2. Then visit your Admin Notifications page to complete the installation.
+
+3. Once installed, you should see new administration options:
+
+> Site administration -> Appearance -> Themes -> Bandeau settings -> default_course_img
+
+This setting allows you to fix a picture url which will be used by default as background image in the course header block if no picture has been chosen in the course configuration.
+
+> Site administration -> Appearance -> Themes -> Bandeau settings -> show_default_course_img
+
+This setting permits to say if you want to use the default image if no picture has been chosen in the course configuration or not. If not checked only course with picture configured will display a course header block background.
+
+How customize this theme ?
+-----
+Edit <i>lib.php</i> file and especially <i>build_header_links()</i> and <i>theme_bandeau_render_page_header_output()</i> functions.
+
+- build_header_links()<br/>
+In this function you need to build an array with links you want to display in the banner and in function of "types" or capabilities.<br/>
+```php
+<?php
+/* Array structure to return */
+$links = [
+    "item1" => [  //Main item
+        "title" => ["icon" => "cf_icon_material", "label" => "Label item1"],
+        "categories" => [  //Subitems array
+            "subitem1" => [  //subitem
+                 "icon" => "cf_icon_material",
+                 "label" => "Label subitem1",
+                 "links" => [  //Links list
+                    "icon" => "",
+                    "label" => "Label link1",
+                    "url" => "Link1 URL"
+                 ]
+            ]
+        ]
+    ],
+    "item2" => [  //Main item
+        "title" => ["icon" => "cf_icon_material", "label" => "Label item2"],
+        "links" => [  //Subitem links array
+            [  //Direct subitem
+                "icon" => "cf_icon_material",
+                "label" => "Label subitem1",
+                "url" => "Subitem1 link"
+            ]
+        ]
+    ],
+    "item3" => [
+        "title" => [  //Direct link
+            "icon" => "",
+            "label" => "Label direct link",
+            "url" => "Direct link URL"
+        ]
+    ]
+];
+```
+
+- theme_bandeau_render_page_header_output()<br/>
+This function is used to sort previous array. The only update you need to do is define array items ($links_items var) in the order you want to display them in the banner. 
+
+Possible improvements
+-----
+- Use config file or admin settings to define menu items and avoid to directly update code if we want to change menu. Similarly to the configuration of the "Custom menu items" setting (settable by admins who are maybe not developpers).
+- List all course enrolment methods in the "Users" item.
+- Change theme to plugin which will be adaptable to any other theme.
+- Use as many as possible heritage from Boost theme (provider, etc...)
+- Improve accessibility (title...)
+- Bug: If the left menu is open and menu in "sticky" position the "Edit mode" button is no longer visible.
+- Bug: If we scroll into the course and it is not very long, the banner can freeze.
+
+About us
+------
+<a href="https://www.uca.fr">Université Clermont Auvergne</a> - 2019.<br/>
