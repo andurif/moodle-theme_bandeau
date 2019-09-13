@@ -16,10 +16,11 @@ Presentation
 - Displays in the header block bakground the picture choosed in the course configuration.
 - Using of a default course picture in dashboard blocks (since moodle 3.7 version).
 
-Pré-requis
+Requirements
 ------------
 - Moodle 3.3 (build 2017051500) or later.<br/>
 -> Tests on Moodle 3.3 to 3.7 versions.<br/>
+- Same other requirements than Boost theme.
 
 Installation
 ------------

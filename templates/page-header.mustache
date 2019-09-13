@@ -1,0 +1,35 @@
+<header id="page-header" class="row">
+    <div class="col-12 pt-3 pb-3">
+        <div class="card card-bandeau">
+            <div class="card-body {{^navbar}}bandeau-header{{/navbar}}" {{#tools}}style='{{#course_image}}background-image: url("{{{course_image}}}"); background-repeat: no-repeat; background-position: right; background-size: 33%; background-origin: padding-box; border-bottom: none;{{/course_image}} ' {{/tools}}>
+                {{#navbar}}
+                    <div id="page-navbar" class="clearfix w-100 float-left" >
+                        <div class="breadcrumb-nav float-left">
+                            {{{navbar}}}
+                        </div>
+                        <div class="breadcrumb-button breadcrumb-button-right">
+                            {{{page_heading_button}}}
+                        </div>
+                    </div>
+                {{/navbar}}
+                {{^navbar}}
+                    <div class="breadcrumb-button">
+                        {{{page_heading_button}}}
+                    </div>
+                {{/navbar}}
+                <!--<div class="float-right context-header-settings-menu">
+                    {{{context_header_settings_menu}}}
+                </div>-->
+                <div class="float-left" {{#tools}}{{#course_image}}style="max-width: 67%;"{{/course_image}}{{/tools}}>
+                    {{{context_header}}}
+                </div>
+                <div id="course-header">
+                    {{{course_header}}}
+                </div>
+            </div>
+            {{#tools}}
+                {{{tools}}}
+            {{/tools}}
+        </div>
+    </div>
+</header>

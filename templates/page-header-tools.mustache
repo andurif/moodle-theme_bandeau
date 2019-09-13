@@ -1,0 +1,67 @@
+<div class="bandeau-page-header-tools" id="bandeau-page-header-tools">
+    <div id="scroll_top">
+        <a class="nav-link scroll_top_link" href="#" onclick="topFunction()" title="{{#str}}back_top, theme_bandeau{{/str}}"><i class="material-icons">arrow_upward</i></a>
+        <span class="navbar-brand p-l-2"><a title="{{#str}}title_courseurl, theme_uca{{/str}}" href="{{{courseurl}}}" class="sticky-title" >{{coursename}}</a></span>
+    </div>
+    <ul class="nav nav-tabs">
+        {{#links}}
+            {{^href}}
+                <li class="nav-item">
+                    <a class="nav-link" href="#bandeau_tab_{{index}}" data-toggle="tab" role="tab" aria-expanded="false">{{{content}}}</a>
+                </li>
+            {{/href}}
+            {{#direct}}
+                <li class="nav-item {{#edit}}ml-auto{{/edit}} ">
+                    <a class="nav-link {{class}}" href="{{{href}}}">{{{content}}}{{#image}} {{#pix}} {{image}} , theme_bandeau {{/pix}} {{/image}}</a>
+                </li>
+            {{/direct}}
+        {{/links}}
+    </ul>
+
+    <div class="tab-content">
+        {{#contents}}
+        <div class="tab-pane" id="bandeau_tab_{{index}}" role="tabpanel" aria-expanded="false">
+            {{{content}}}
+        </div>
+        {{/contents}}
+    </div>
+</div>
+<script>
+    window.onscroll = function() { updateSticky() };
+
+    var navbar = document.getElementById("bandeau-page-header-tools");
+    var sticky = navbar.offsetTop-50;
+
+    /**
+    Function to update sticky class on navbar if we scroll.
+    */
+    function updateSticky() {
+        if (window.pageYOffset >= sticky) {
+            navbar.classList.add("sticky")
+        } else {
+            navbar.classList.remove("sticky");
+        }
+    }
+
+    /** 
+    Function to return to the top of the page
+    */
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+
+    window.onload = function () {
+        $('#bandeau-page-header-tools a[role="tab"]').click(function (e) {
+            if($(this).hasClass('active')){
+                e.preventDefault();
+                e.stopPropagation();
+                $( $(this).attr('href') ).removeClass('active').removeClass('show');
+                $(this).removeClass('active').removeClass('show');
+            }
+            else {
+                $(this).tab('show');
+            }
+        });
+    }
+</script>
