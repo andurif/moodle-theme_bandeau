@@ -60,3 +60,4 @@ $string['edit_params'] = 'Modifier les paramètres du cours';
 $string['delete_course'] = 'Supprimer ce cours';
 $string['back_top'] = 'Revenir en haut de page';
 $string['enrol_cohort'] = 'Inscrire une classe';
+$string['title_courseurl'] = 'Revenir au cours';

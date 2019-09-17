@@ -56,7 +56,7 @@ class core_renderer extends boost_renderer
         $this->filter_drawer();
 
         //Course image display or not ?
-        $image = course_summary_exporter::get_course_image(get_course($PAGE->course->id));
+         $image = (function_exists('get_course_image')) ? course_summary_exporter::get_course_image(get_course($PAGE->course->id)) : null;
         $show_default = get_config('theme_bandeau', 'show_default_course_img');
         $image = (!$image) ? (($show_default) ? get_config('theme_bandeau', 'default_course_img') : null) : $image;
 

@@ -60,3 +60,4 @@ $string['edit_params'] = 'Edit course parameters';
 $string['delete_course'] = 'Delete this course';
 $string['back_top'] = 'Back to top';
 $string['enrol_cohort'] = 'Enrol cohort';
+$string['title_courseurl'] = 'Go the course page';

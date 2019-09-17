@@ -13,13 +13,13 @@ Presentation
 - Possibility to pass on "Edition mode" more easily.
 - Possibility to keep menu on the top of the page even we scroll on the course.
 - Possibility to add a block more easily without passing on the left menu
-- Displays in the header block bakground the picture choosed in the course configuration.
+- Displays in the header block bakground the picture choosed in the course configuration (since moodle 3.6 version, in other cases it will display default image you define in the theme settings).
 - Using of a default course picture in dashboard blocks (since moodle 3.7 version).
 
 Requirements
 ------------
 - Moodle 3.3 (build 2017051500) or later.<br/>
--> Tests on Moodle 3.3 to 3.7 versions.<br/>
+-> Tests on Moodle 3.3 to 3.7 versions (warning all features will maybe not be available in moodle 3.3.x to 3.5.x versions).<br/>
 - Same other requirements than Boost theme.
 
 Installation

@@ -13,13 +13,13 @@ Présentation
 - Possibilité de passer en "mode édition" plus facilement.
 - Possibilité de garder le bandeau en haut de page même si l'on scrolle dans le cours.
 - Possibilité d'ajouter un bloc facilement sans passer par le menu déroulant de gauche.
-- Afficher en fond du bloc d'en-tête l'image de cours définie dans les paramètres.
+- Afficher en fond du bloc d'en-tête l'image de cours définie dans les paramètres (à partir de la version 3.6 de moodle, sinon affichage de l'image par défaut configurable dans les réglage du thème).
 - Utiliser une image de cours par défaut pour les vignettes de cours (à partir de la version 3.7 de moodle).
 
 Pré-requis
 ------------
 - Moodle en version 3.3 (build 2017051500) ou plus récente.<br/>
--> Tests effectués sur des versions 3.3 à 3.7.<br/>
+-> Tests effectués sur des versions 3.3 à 3.7 (attention toutes les fonctionnalités ne seront pas forcément présentes pour les versions 3.5.x à 3.5.x).<br/>
 - Même autres pré-requis que pour le thème Boost.
 
 Installation
