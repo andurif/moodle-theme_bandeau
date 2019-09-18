@@ -91,6 +91,8 @@ $links = [
 - theme_bandeau_render_page_header_output()<br/>
 Le but de cette fonction est de réorganiser le tableau précédent. La seule personnalisation est faire dans cette fonction est de définir les éléments du tableau $links_items dans l'ordre que l'on veut voir les items dans le bandeau.
 
+<strong>Attention</strong>, si un de vos plugins locaux ou additionnels possèdent une fonction du type <i>xxx_render_page_header_output()</i> il pourra il y avoir un conflit dans l'affichage du bandeau et du menu.
+
 
 Pistes d'améliorations
 -----
@@ -99,6 +101,7 @@ Pistes d'améliorations
 - Modifier le thème en plugin pour qu'il puisse s'adapter à tout type de thème.
 - Le plus possible faire des notions d'héritage par rapport au thème Boost (provider par ex, etc...)
 - Améliorer l'accessibilité (title...)
+- Faire en sorte qu'il n'y est pas de conflit si un autre plugin possède une fonction du type xxx_render_page_header_output().
 - Bug: Si le bandeau de gauche est ouvert et le bandeau en position "sticky" le bouton "Mode édition" n'est plus visible.
 - Bug: Si l'on scrolle dans le cours mais que celui-ci n'est pas trop long, possibilité de voir le bandeau freezer. 
 

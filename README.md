@@ -91,6 +91,8 @@ $links = [
 - theme_bandeau_render_page_header_output()<br/>
 This function is used to sort previous array. The only update you need to do is define array items ($links_items var) in the order you want to display them in the banner. 
 
+<strong>Be careful</strong>, if one of your additionnal plugin has a <i>xxx_render_page_header_output()</i> function a conflict can be possible during the banner display.
+
 Possible improvements
 -----
 - Use config file or admin settings to define menu items and avoid to directly update code if we want to change menu. Similarly to the configuration of the "Custom menu items" setting (settable by admins who are maybe not developpers).
@@ -98,6 +100,7 @@ Possible improvements
 - Change theme to plugin which will be adaptable to any other theme.
 - Use as many as possible heritage from Boost theme (provider, etc...)
 - Improve accessibility (title...)
+- Try to avoid conflicts if there is a xxx_render_page_header_output() function in another plugin.
 - Bug: If the left menu is open and menu in "sticky" position the "Edit mode" button is no longer visible.
 - Bug: If we scroll into the course and it is not very long, the banner can freeze.
 
