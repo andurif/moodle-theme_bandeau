@@ -114,7 +114,7 @@ function theme_bandeau_get_links_html($conf)
             }
 
             if (null == $element["content"]) {
-                //lien unique dans le menu (pas de sous menu)
+                //Unique link (no submenu)
                 $link->direct = true;
                 $link->href = $element["link"]["url"];
                 if (isset($element["link"]["edit"])) $link->edit = true;

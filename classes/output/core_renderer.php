@@ -56,7 +56,7 @@ class core_renderer extends boost_renderer
         $this->filter_drawer();
 
         //Course image display or not ?
-         $image = (function_exists('get_course_image')) ? course_summary_exporter::get_course_image(get_course($PAGE->course->id)) : null;
+	$image = (class_exists(course_summary_exporter::class) && method_exists(course_summary_exporter::class, 'get_course_image')) ? course_summary_exporter::get_course_image(get_course($PAGE->course->id)) : null;
         $show_default = get_config('theme_bandeau', 'show_default_course_img');
         $image = (!$image) ? (($show_default) ? get_config('theme_bandeau', 'default_course_img') : null) : $image;
 
@@ -87,6 +87,8 @@ class core_renderer extends boost_renderer
         $links = [];
         $contents = [];
 
+	//By default, we also call others functions called xxx_render_page_header_output() if there is some.
+	//Warning: call these functions can cause a display conflict
         if ($pluginsfunction = get_plugins_with_function('render_page_header_output')) {
             foreach ($pluginsfunction as $plugintype => $plugins) {
                 foreach ($plugins as $pluginfunction) {
@@ -97,6 +99,10 @@ class core_renderer extends boost_renderer
                 }
             }
         }
+	//If you just want call the theme's function, comment the previous if section and uncomment the code section below
+	/*$output = theme_bandeau_render_page_header_output();
+        $links = $output['links'];
+        $contents = $output['contents'];*/
 
         foreach ($links as $index=>$link)
         {
@@ -104,8 +110,11 @@ class core_renderer extends boost_renderer
             $contents[$index]->index = $index;
         }
 
+	$courseurl = new moodle_url('/course/view.php', array('id' => $PAGE->course->id));
+
         return $this->render_from_template('theme_bandeau/page-header-tools', [
             "coursename" => $PAGE->course->fullname,
+            "courseurl" => $courseurl->out(),
             "links" => $links,
             "contents" => $contents,
             "is_admin" => is_primary_admin($USER->id)
