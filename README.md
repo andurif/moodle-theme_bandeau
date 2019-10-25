@@ -91,7 +91,8 @@ $links = [
 - theme_bandeau_render_page_header_output()<br/>
 This function is used to sort previous array. The only update you need to do is define array items ($links_items var) in the order you want to display them in the banner. 
 
-<strong>Be careful</strong>, if one of your additionnal plugin has a <i>xxx_render_page_header_output()</i> function a conflict can be possible during the banner display.
+<strong>Be careful</strong>, if one of your additionnal plugin has a <i>xxx_render_page_header_output()</i> function a conflict can be possible during the banner display. 
+To avoid conflicts it's possible to use only this theme function by commenting/uncommenting a section code starting on line 91 in the <i>classes/output/core_renderer.php</i> file.
 
 Possible improvements
 -----

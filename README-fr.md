@@ -92,6 +92,7 @@ $links = [
 Le but de cette fonction est de réorganiser le tableau précédent. La seule personnalisation est faire dans cette fonction est de définir les éléments du tableau $links_items dans l'ordre que l'on veut voir les items dans le bandeau.
 
 <strong>Attention</strong>, si un de vos plugins locaux ou additionnels possèdent une fonction du type <i>xxx_render_page_header_output()</i> il pourra il y avoir un conflit dans l'affichage du bandeau et du menu.
+Il est cependant possible de n'utiliser que la fonction définie dans ce thème. Pour cela, vous devrez commenter/décommenter une partie de code comme indiqué à partir de la ligne 91 dans le fichier <i>classes/output/core_renderer.php</i> .
 
 
 Pistes d'améliorations
