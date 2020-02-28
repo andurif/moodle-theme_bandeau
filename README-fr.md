@@ -27,7 +27,7 @@ Installation
 1. Installation du plugin
 
 - Avec git:
-> git clone https://github.com/andurif/moodle-theme_bandeau.git bandeau
+> git clone https://github.com/andurif/moodle-theme_bandeau.git theme/bandeau
 
 - Téléchargement:
 > Télécharger le zip depuis https://github.com/andurif/moodle-theme_bandeau/archive/master.zip, dézipper l'archive dans le dossier theme/ et renommer le si besoin le dossier en "bandeau".
