@@ -18,7 +18,8 @@
  * Theme Bandeau
  *
  * @package    theme_bandeau
- * @copyright  2019 Université Clermont Auvergne, Anthony Durif
+ * @author     Anthony Durif - Université Clermont Auvergne
+ * @copyright  2019 Anthony Durif - Université Clermont Auvergne
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -26,7 +27,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 // This is the version of the plugin.
-$plugin->version = '2019071000';
+$plugin->version = '2020022500';
 
 // This is the version of Moodle this plugin requires.
 $plugin->requires = '2016112900';

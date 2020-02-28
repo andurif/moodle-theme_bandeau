@@ -18,7 +18,8 @@
  * Theme Bandeau functions.
  *
  * @package    theme_bandeau
- * @copyright  2019 Université Clermont Auvergne, Anthony Durif
+ * @author     Anthony Durif - Université Clermont Auvergne
+ * @copyright  2019 Anthony Durif - Université Clermont Auvergne
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -113,17 +114,24 @@ function theme_bandeau_get_links_html($conf)
                 $link->content = "<i class=\"material-icons\">" . $element["link"]["icon"] . "</i> " . $element["link"]["label"];
             }
 
+            if(isset($element["home"]) && $element["home"]) {
+                $link->class = "home-link";
+            }
+            $link->title = (isset($element["link"]["title"])) ? $element["link"]["title"] : $element["link"]["label"];
+
             if (null == $element["content"]) {
                 //Unique link (no submenu)
                 $link->direct = true;
                 $link->href = $element["link"]["url"];
-                if (isset($element["link"]["edit"])) $link->edit = true;
+                if (isset($element["link"]["edit"])) {
+                    $link->edit = true;
+                }
             }
 
             $links[] = $link;
 
             $content = new \StdClass();
-            $content->content = ($element["content"]["text"] != "" ? '<blockquote>' . $element["content"]["text"] . '</blockquote>':"");
+            $content->content = ($element["content"]["text"] != "" ? '<blockquote>' . $element["content"]["text"] . '</blockquote>' : "");
             if (isset($element["content"]["categories"]))
             {
                 $content->content .= "<div class='row'>";
@@ -159,7 +167,7 @@ function theme_bandeau_get_links_html($conf)
  *
  * @return array
  */
-function build_header_links()
+function theme_bandeau_build_header_links()
 {
     global $COURSE, $DB, $PAGE, $USER, $CFG, $SESSION;
     
@@ -170,6 +178,9 @@ function build_header_links()
     $links["users"]["title"] = ["icon" => "person", "label" => get_string("users")];
     $links["users"]["categories"] = [];
     $links["rapport"]["title"] = ["icon" => "equalizer", "label" => get_string("report")];
+
+    // We always display the homepage course link.
+    $links["home"]["title"] = ["icon" => "school", "label" => false, "title" => get_string("home_course", "theme_bandeau"), "url" => new moodle_url('/course/view.php', ['id' => $COURSE->id])];
 
     if (has_capability('moodle/course:update', context_course::instance($COURSE->id))) {
         $links["manage"]["categories"]["params"] = ["icon" => "settings", "label" => get_string("editsettings"), "links" => []];
@@ -270,34 +281,35 @@ function build_header_links()
  */
 function theme_bandeau_render_page_header_output()
 {
-    $links_items = ["manage", "users", "questions", "rapport", "admin", "add_block", "edit_mode"];
-    $links = build_header_links();
-    $conf=[];
+    $items = ["home", "manage", "users", "questions", "rapport", "admin", "add_block", "edit_mode"];
+    $links = theme_bandeau_build_header_links();
+    $conf = [];
 
-    foreach($links_items as $links_item)
+    foreach($items as $item)
     {
-        if (!empty($links[$links_item]["links"])) {
+        if (!empty($links[$item]["links"])) {
             $conf[] = [
-                "link" => $links[$links_item]["title"],
+                "link" => $links[$item]["title"],
                 "content" => [
                     "text" => "",
-                    "links" => $links[$links_item]["links"]
+                    "links" => $links[$item]["links"]
                 ]
             ];
         }
-        elseif (!empty($links[$links_item]["categories"])) {
+        elseif (!empty($links[$item]["categories"])) {
             $conf[] = [
-                "link" => $links[$links_item]["title"],
+                "link" => $links[$item]["title"],
                 "content" => [
                     "text" => "",
-                    "categories" => $links[$links_item]["categories"]
+                    "categories" => $links[$item]["categories"]
                 ]
             ];
         }
-        elseif (!empty($links[$links_item]["title"]["url"])) {
+        elseif (!empty($links[$item]["title"]["url"])) {
             $conf[] = [
-                "link" => $links[$links_item]["title"],
-                "content" => null
+                "link" => $links[$item]["title"],
+                "content" => null,
+                "home" => ($item === "home")
             ];
         }
     }

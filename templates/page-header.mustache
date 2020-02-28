@@ -1,10 +1,10 @@
 <header id="page-header" class="row">
     <div class="col-12 pt-3 pb-3">
-        <div class="card card-bandeau">
-            <div class="card-body {{^navbar}}bandeau-header{{/navbar}}" {{#tools}}style='{{#course_image}}background-image: url("{{{course_image}}}"); background-repeat: no-repeat; background-position: right; background-size: 33%; background-origin: padding-box; border-bottom: none;{{/course_image}} ' {{/tools}}>
+        <div class="card card-bandeau" {{^has_links}}style='{{#course_image}}background-image: url("{{{course_image}}}"); background-repeat: no-repeat; background-position: right; background-size: 33%;{{/course_image}}' {{/has_links}}>
+            <div class="card-body {{^navbar}}bandeau-header{{/navbar}}" {{#tools}}{{#has_links}}style='{{#course_image}}background-image: url("{{{course_image}}}"); background-repeat: no-repeat; background-position: right; background-size: 33%;{{/course_image}}' {{/has_links}}{{/tools}}>
                 {{#navbar}}
                     <div id="page-navbar" class="clearfix w-100 float-left" >
-                        <div class="breadcrumb-nav float-left">
+                        <div class="breadcrumb-nav float-left" {{#tools}}{{#course_image}}style="max-width: 67%;"{{/course_image}}{{/tools}}>
                             {{{navbar}}}
                         </div>
                         <div class="breadcrumb-button breadcrumb-button-right">
@@ -27,6 +27,9 @@
                     {{{course_header}}}
                 </div>
             </div>
+            {{^has_links}}
+                <a class="home-link" href='{{{courseurl}}}' style="width: 60px; height: 45px; padding: .5rem 1rem;" title="{{#str}}home_course, theme_bandeau{{/str}}"><i class="material-icons">school</i> </a>
+            {{/has_links}}
             {{#tools}}
                 {{{tools}}}
             {{/tools}}

@@ -88,3 +88,14 @@
 #page-my-index {
   background-color: inherit;
 }
+
+a.home-link {
+  background-color: $primary;
+}
+.home-link i {
+  color: white;
+}
+a.home-link:hover {
+  background-color: $primary-light;
+  color: $primary;
+}

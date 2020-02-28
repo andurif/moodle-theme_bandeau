@@ -18,7 +18,8 @@
  * Privacy Subsystem implementation for theme_bandeau.
  *
  * @package    theme_bandeau
- * @copyright  2019 Université Clermont Auvergne, Anthony Durif
+ * @author     Anthony Durif - Université Clermont Auvergne
+ * @copyright  2019 Anthony Durif - Université Clermont Auvergne
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -31,7 +32,7 @@ defined('MOODLE_INTERNAL') || die();
 /**
  * The bandeau theme stores a user preference data.
  *
- * @copyright  2019 Université Clermont Auvergne, Anthony Durif
+ * @copyright  2019 Anthony Durif - Université Clermont Auvergne
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class provider implements

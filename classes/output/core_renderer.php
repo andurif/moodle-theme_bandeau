@@ -26,7 +26,8 @@ use core_course\external\course_summary_exporter;
  * Custom renderers (child of Boost theme renderer) to display our banner.
  *
  * @package    theme_bandeau
- * @copyright  2019 Université Clermont Auvergne, Anthony Durif
+ * @author     Anthony Durif - Université Clermont Auvergne
+ * @copyright  2019 Anthony Durif - Université Clermont Auvergne
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class core_renderer extends boost_renderer
@@ -38,7 +39,7 @@ class core_renderer extends boost_renderer
      * Constructor
      *
      * @param moodle_page $page the page we are doing output for.
-     * @param string $target one of rendering target constants
+     * @param string $target one of rendering target constants.
      */
     public function __construct(moodle_page $page, $target = null)
     {
@@ -54,11 +55,7 @@ class core_renderer extends boost_renderer
         global $PAGE, $USER;
 
         $this->filter_drawer();
-
-        //Course image display or not ?
-	$image = (class_exists(course_summary_exporter::class) && method_exists(course_summary_exporter::class, 'get_course_image')) ? course_summary_exporter::get_course_image(get_course($PAGE->course->id)) : null;
-        $show_default = get_config('theme_bandeau', 'show_default_course_img');
-        $image = (!$image) ? (($show_default) ? get_config('theme_bandeau', 'default_course_img') : null) : $image;
+        $courseurl = new moodle_url('/course/view.php', array('id' => $PAGE->course->id));
 
         $params = [
             'context_header_settings_menu' => (is_primary_admin($USER->id) ? $this->context_header_settings_menu() : false),
@@ -67,7 +64,9 @@ class core_renderer extends boost_renderer
             'page_heading_button' => str_replace('btn-secondary', 'btn-primary', $this->page_heading_button()),
             'course_header' => $this->course_header(),
             'tools' => $this->header_tools(),
-            'course_image' => $image,
+            'course_image' => $this->get_course_image(),
+            'has_links' => $this->has_links(),
+            'courseurl' => $courseurl->out(),
         ];
         
         return $this->render_from_template('theme_bandeau/page-header', $params);
@@ -87,8 +86,8 @@ class core_renderer extends boost_renderer
         $links = [];
         $contents = [];
 
-	//By default, we also call others functions called xxx_render_page_header_output() if there is some.
-	//Warning: call these functions can cause a display conflict
+	    // By default, we also call others functions called xxx_render_page_header_output() if there is some.
+	    // Warning: call these functions can cause a display conflict
         if ($pluginsfunction = get_plugins_with_function('render_page_header_output')) {
             foreach ($pluginsfunction as $plugintype => $plugins) {
                 foreach ($plugins as $pluginfunction) {
@@ -99,25 +98,28 @@ class core_renderer extends boost_renderer
                 }
             }
         }
-	//If you just want call the theme's function, comment the previous if section and uncomment the code section below
-	/*$output = theme_bandeau_render_page_header_output();
+	    // If you just want call the theme's function, comment the previous if section and uncomment the code section below
+	    /*$output = theme_bandeau_render_page_header_output();
         $links = $output['links'];
         $contents = $output['contents'];*/
 
-        foreach ($links as $index=>$link)
-        {
-            $links[$index]->index = $index;
-            $contents[$index]->index = $index;
+        if($this->has_links()) {
+            foreach ($links as $index => $link) {
+                $links[$index]->index = $index;
+                $contents[$index]->index = $index;
+            }
+        }
+        else {
+            $links = [];
         }
 
-	$courseurl = new moodle_url('/course/view.php', array('id' => $PAGE->course->id));
+	    $courseurl = new moodle_url('/course/view.php', array('id' => $PAGE->course->id));
 
         return $this->render_from_template('theme_bandeau/page-header-tools', [
             "coursename" => $PAGE->course->fullname,
             "courseurl" => $courseurl->out(),
             "links" => $links,
             "contents" => $contents,
-            "is_admin" => is_primary_admin($USER->id)
         ]);
     }
 
@@ -147,6 +149,25 @@ class core_renderer extends boost_renderer
             $PAGE->flatnav->remove('home');
         }
     }
+
+    /**
+     * Function to return the course image displayed in the course header.
+     * @return mixed|string|null
+     * @throws \dml_exception
+     */
+    public function get_course_image()
+    {
+        global $PAGE;
+        if ($PAGE->course->id == 1) {
+            return null;
+        }
+
+        $image = (class_exists(course_summary_exporter::class) && method_exists(course_summary_exporter::class, 'get_course_image'))
+            ? course_summary_exporter::get_course_image(get_course($PAGE->course->id)) : null;
+        $image = (!$image) ? get_config('theme_bandeau', 'default_course_img') : $image;
+
+        return $image;
+    }
     
     /**
      * Get the course pattern datauri to show on a course card.
@@ -164,5 +185,24 @@ class core_renderer extends boost_renderer
         catch(\Exception $e) {
             parent::get_generated_image_for_id($id);
         }
+    }
+
+    /**
+     * Check if the user has manage links in the header.
+     *
+     * @return boolean true if the user has links and false in other cases.
+     */
+    public function has_links()
+    {
+        global $PAGE;
+        if ($PAGE->course->id == 1) {
+            return false;
+        }
+
+        $output = theme_bandeau_render_page_header_output();
+        $links = $output['links'];
+
+        // If the user has only one link we will consider like he has none because the course homepage link is always present.
+        return (count($links) > 1);
     }
 }

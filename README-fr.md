@@ -19,7 +19,7 @@ Présentation
 Pré-requis
 ------------
 - Moodle en version 3.3 (build 2017051500) ou plus récente.<br/>
--> Tests effectués sur des versions 3.3 à 3.7 (attention toutes les fonctionnalités ne seront pas forcément présentes pour les versions 3.5.x à 3.5.x).<br/>
+-> Tests effectués sur des versions 3.3 à 3.8.1 (attention toutes les fonctionnalités ne seront pas forcément présentes pour les versions 3.5.x à 3.5.x).<br/>
 - Même autres pré-requis que pour le thème Boost.
 
 Installation
@@ -46,9 +46,10 @@ Ce réglage permet d'indiquer si l'image définie juste avant doit être prise e
 
 Comment personnaliser le thème ?
 -----
-Modifier le fichier <i>lib.php</i> et particulièrement les fonctions <i>build_header_links()</i> et <i>theme_bandeau_render_page_header_output()</i>.
+Par défaut, les actions les plus récurrentes et présentes dans le core de moodle ont été utilisées mais il est possible d'en ajouter d'autres.<br/>
+Pour cela, modifiez le fichier <i>lib.php</i> et particulièrement les fonctions <i>theme_bandeau_build_header_links()</i> et <i>theme_bandeau_render_page_header_output()</i>.
 
-- build_header_links()<br/>
+- theme_bandeau_build_header_links()<br/>
 Le but de cette fonction est de construire le tableau regroupant les liens à afficher selon des "types" à définir et selon des capacités par exemple.<br/>
 ```php
 <?php
@@ -108,4 +109,4 @@ Pistes d'améliorations
 
 A propos
 ------
-<a href="https://www.uca.fr">Université Clermont Auvergne</a> - 2019.<br/>
+<a href="https://www.uca.fr">Université Clermont Auvergne</a> - 2020.<br/>

@@ -19,7 +19,7 @@ Presentation
 Requirements
 ------------
 - Moodle 3.3 (build 2017051500) or later.<br/>
--> Tests on Moodle 3.3 to 3.7 versions (warning all features will maybe not be available in moodle 3.3.x to 3.5.x versions).<br/>
+-> Tests on Moodle 3.3 to 3.8.1 versions (warning all features will maybe not be available in moodle 3.3.x to 3.5.x versions).<br/>
 - Same other requirements than Boost theme.
 
 Installation
@@ -46,9 +46,10 @@ This setting permits to say if you want to use the default image if no picture h
 
 How customize this theme ?
 -----
-Edit <i>lib.php</i> file and especially <i>build_header_links()</i> and <i>theme_bandeau_render_page_header_output()</i> functions.
+For now we only use the most recurrent and available in the moodle core actions but it is possible to add some others.<br/>
+For it, edit <i>lib.php</i> file and especially <i>theme_bandeau_build_header_links()</i> and <i>theme_bandeau_render_page_header_output()</i> functions.
 
-- build_header_links()<br/>
+- theme_bandeau_build_header_links()<br/>
 In this function you need to build an array with links you want to display in the banner and in function of "types" or capabilities.<br/>
 ```php
 <?php
@@ -107,4 +108,4 @@ Possible improvements
 
 About us
 ------
-<a href="https://www.uca.fr">Université Clermont Auvergne</a> - 2019.<br/>
+<a href="https://www.uca.fr">Université Clermont Auvergne</a> - 2020.<br/>

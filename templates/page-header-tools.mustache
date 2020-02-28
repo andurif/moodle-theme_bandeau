@@ -1,6 +1,9 @@
 <div class="bandeau-page-header-tools" id="bandeau-page-header-tools">
     <div id="scroll_top">
         <a class="nav-link scroll_top_link" href="#" onclick="topFunction()" title="{{#str}}back_top, theme_bandeau{{/str}}"><i class="material-icons">arrow_upward</i></a>
+        {{^links}}
+            <a class="home-link" href='{{{courseurl}}}' style="width: 60px; height: 45px; padding: .5rem 1rem;" title="{{#str}}home_course, theme_bandeau{{/str}}"><i class="material-icons">school</i> </a>
+        {{/links}}
         <span class="navbar-brand p-l-2"><a title="{{#str}}title_courseurl, theme_bandeau{{/str}}" href="{{{courseurl}}}" class="sticky-title" >{{coursename}}</a></span>
     </div>
     <ul class="nav nav-tabs">

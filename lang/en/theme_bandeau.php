@@ -18,7 +18,8 @@
  * Language file, english.
  *
  * @package    theme_bandeau
- * @copyright  2019 Université Clermont Auvergne, Anthony Durif
+ * @author     Anthony Durif - Université Clermont Auvergne
+ * @copyright  2019 Anthony Durif - Université Clermont Auvergne
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -61,3 +62,4 @@ $string['delete_course'] = 'Delete this course';
 $string['back_top'] = 'Back to top';
 $string['enrol_cohort'] = 'Enrol cohort';
 $string['title_courseurl'] = 'Go the course page';
+$string['home_course'] = 'Course homepage';
