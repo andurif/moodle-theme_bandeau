@@ -27,10 +27,10 @@
                     {{{course_header}}}
                 </div>
             </div>
-            {{^has_links}}
-                <a class="home-link" href='{{{courseurl}}}' style="width: 60px; height: 45px; padding: .5rem 1rem;" title="{{#str}}home_course, theme_bandeau{{/str}}"><i class="material-icons">school</i> </a>
-            {{/has_links}}
             {{#tools}}
+                {{^has_links}}
+                    <a class="home-link" href='{{{courseurl}}}' style="width: 60px; height: 45px; padding: .5rem 1rem;" title="{{#str}}home_course, theme_bandeau{{/str}}"><i class="material-icons">school</i> </a>
+                {{/has_links}}
                 {{{tools}}}
             {{/tools}}
         </div>
