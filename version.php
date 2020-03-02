@@ -15,26 +15,22 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Theme Bandeau
+ * Version details
  *
- * @package    theme_bandeau
+ * @package    gradeexport
+ * @subpackage apogee
  * @author     Anthony Durif - Université Clermont Auvergne
  * @copyright  2019 Anthony Durif - Université Clermont Auvergne
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-// This line protects the file from being accessed by a URL directly.
 defined('MOODLE_INTERNAL') || die();
 
-// This is the version of the plugin.
-$plugin->version = '2020022500';
-// This is the version of Moodle this plugin requires.
-$plugin->requires = '2016112900';
-// This is the component name of the plugin - it always starts with 'theme_'
-// for themes and should be the same as the name of the folder.
-$plugin->component = 'theme_bandeau';
-// This is a list of plugins, this plugin depends on (and their versions).
+$plugin->version   = 2020022500;        // The current plugin version (Date: YYYYMMDDXX).
+$plugin->requires  = 2016112900;        // Requires this Moodle version.
+$plugin->component = 'theme_bandeau'; // Full name of the plugin (used for diagnostics).
 $plugin->dependencies = [
     'theme_boost' => '2016120500'
 ];
+$plugin->release   = 'v3.8-r1';
 $plugin->maturity = MATURITY_STABLE;
