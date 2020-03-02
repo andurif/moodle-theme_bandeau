@@ -14,6 +14,15 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
+/**
+ * Custom renderers (child of Boost theme renderer) to display our banner.
+ *
+ * @package    theme_bandeau
+ * @author     Anthony Durif - Université Clermont Auvergne
+ * @copyright  2019 Anthony Durif - Université Clermont Auvergne
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+
 namespace theme_bandeau\output;
 
 use moodle_url;
@@ -186,3 +195,4 @@ class core_renderer extends boost_renderer
         return (count($links) > 1);
     }
 }
+

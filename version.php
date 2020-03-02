@@ -17,8 +17,8 @@
 /**
  * Version details
  *
- * @package    gradeexport
- * @subpackage apogee
+ * @package    theme
+ * @subpackage bandeau
  * @author     Anthony Durif - Université Clermont Auvergne
  * @copyright  2019 Anthony Durif - Université Clermont Auvergne
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -32,5 +32,5 @@ $plugin->component = 'theme_bandeau'; // Full name of the plugin (used for diagn
 $plugin->dependencies = [
     'theme_boost' => '2016120500'
 ];
-$plugin->release   = 'v3.8-r1';
+$plugin->release   = 'v3.8-r2';
 $plugin->maturity = MATURITY_STABLE;
