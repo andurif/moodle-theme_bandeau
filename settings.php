@@ -62,7 +62,7 @@ if ($ADMIN->fulltree) {
 
     // Preset files setting.
     $name = 'theme_bandeau/presetfiles';
-    $title = get_string('presetfiles','theme_bandeau');
+    $title = get_string('presetfiles', 'theme_bandeau');
     $description = get_string('presetfiles_desc', 'theme_bandeau');
 
     $setting = new admin_setting_configstoredfile($name, $title, $description, 'preset', 0,
@@ -97,7 +97,7 @@ if ($ADMIN->fulltree) {
     $page->add($setting);
     $settings->add($page);
 
-    //Dashboard informations blocks settings
+    // Dashboard informations blocks settings.
     $page = new admin_settingpage('theme_bandeau_settings', get_string('bandeauheadersettings', 'theme_bandeau'));
     $page->add(new admin_setting_configtext(
         'theme_bandeau/default_course_img',

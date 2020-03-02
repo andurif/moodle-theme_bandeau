@@ -26,7 +26,7 @@
 // This line protects the file from being accessed by a URL directly.
 defined('MOODLE_INTERNAL') || die();
 
-// $THEME is defined before this page is included and we can define settings by adding properties to this global object.
+// THEME variable is defined before this page is included and we can define settings by adding properties to this global object.
 
 // The first setting we need is the name of the theme. This should be the last part of the component name, and the same
 // as the directory name for our theme.
@@ -64,19 +64,21 @@ $THEME->rendererfactory = 'theme_overridden_renderer_factory';
 // pages in Moodle. Boost does not require these blocks because it provides other ways to navigate built into the theme.
 $THEME->requiredblocks = '';
 
-// This is a feature that tells the blocks library not to use the "Add a block" block. We don't want this in boost based themes because
-// it forces a block region into the page when editing is enabled and it takes up too much room.
+// This is a feature that tells the blocks library not to use the "Add a block" block.
+// We don't want this in boost based themes because it forces a block region into the page when editing is enabled
+// and it takes up too much room.
 $THEME->addblockposition = BLOCK_ADDBLOCK_POSITION_FLATNAV;
 
-//Make sure your theme wont show up in theme selector.
+// Make sure your theme wont show up in theme selector.
 $THEME->hidefromselector = false;
 
-// This setting defines the main scss file for our theme to be compiled. We could set it to a static file in the scss folder or to a function which returns the SCSS based on theme settings.
+// This setting defines the main scss file for our theme to be compiled. We could set it to a static file in the scss folder
+// or to a function which returns the SCSS based on theme settings.
 
 $THEME->scss = function($theme) {
     // We need to load the config for our parent theme because that is where the preset setting is defined.
     $parentconfig = theme_config::load('boost');
-    // Call a function from our parent themes lib.php file to fetch the content of the themes main SCSS file based on it's own config, not ours.
+    // Call a function from our parent theme lib to fetch the content of the theme main SCSS file based on its own config, not ours.
     return theme_boost_get_main_scss_content($parentconfig);
 };
 

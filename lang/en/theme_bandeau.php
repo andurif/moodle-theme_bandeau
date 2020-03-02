@@ -26,7 +26,7 @@
 // This line protects the file from being accessed by a URL directly.
 defined('MOODLE_INTERNAL') || die();
 
-//From Boost theme
+// From Boost theme.
 $string['advancedsettings'] = 'Advanced settings';
 $string['brandcolor'] = 'Brand colour';
 $string['brandcolor_desc'] = 'The accent colour.';
@@ -44,17 +44,17 @@ $string['rawscsspre'] = 'Raw initial SCSS';
 $string['rawscsspre_desc'] = 'In this field you can provide initialising SCSS code, it will be injected before everything else. Most of the time you will use this setting to define variables.';
 $string['region-side-pre'] = 'Right';
 
-$string['edit_mode'] = "Edit mode";
+$string['edit_mode'] = 'Edit mode';
 $string['privacy:metadata:preference:draweropennav'] = 'The user\'s preference for hiding or showing the drawer menu navigation beacause bandeau theme extends Boost theme.';
 
-//Configuration
+// Configuration.
 $string['bandeauheadersettings'] = 'Header settings';
 $string['default_course_img'] = 'Default course image';
 $string['default_course_img_desc'] = 'URL of image used by default in a cours header.';
 $string['show_default_course_img'] = 'Use default image if no image set in the course configuration';
 $string['show_default_course_img_desc'] = 'If checked the default image will be used as course header background if no image was set in the course configuration. If not, no image will be displayed.';
 
-//Items
+// Items.
 $string['manage'] = 'Course management';
 $string['import_export'] = 'Import / Export';
 $string['edit_params'] = 'Edit course parameters';

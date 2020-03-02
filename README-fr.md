@@ -13,6 +13,7 @@ Présentation
 - Possibilité de passer en "mode édition" plus facilement.
 - Possibilité de garder le bandeau en haut de page même si l'on scrolle dans le cours.
 - Possibilité d'ajouter un bloc facilement sans passer par le menu déroulant de gauche.
+- Possibilité de revenir plus facilement à la page principale du cours.
 - Afficher en fond du bloc d'en-tête l'image de cours définie dans les paramètres (à partir de la version 3.6 de moodle, sinon affichage de l'image par défaut configurable dans les réglage du thème).
 - Utiliser une image de cours par défaut pour les vignettes de cours (à partir de la version 3.7 de moodle).
 
@@ -30,7 +31,7 @@ Installation
 > git clone https://github.com/andurif/moodle-theme_bandeau.git theme/bandeau
 
 - Téléchargement:
-> Télécharger le zip depuis https://github.com/andurif/moodle-theme_bandeau/archive/master.zip, dézipper l'archive dans le dossier theme/ et renommer le si besoin le dossier en "bandeau".
+> Télécharger le zip depuis https://github.com/andurif/moodle-theme_bandeau/archive/master.zip, dézipper l'archive dans le dossier theme/ et renommer le si besoin le dossier en "bandeau" ou installez-le depuis la page d'installation des plugins si vous possédeez les bons droits..
   
 2. Aller sur la page de notifications pour finaliser l'installation du plugin.
 
@@ -42,7 +43,7 @@ Ce réglage permet de fixer l'url d'une image qui sera utilisée par défaut au 
 
 > Administration du site -> Présentation -> Thèmes -> Paramètres Bandeau -> show_default_course_img
 
-Ce réglage permet d'indiquer si l'image définie juste avant doit être prise en compte ou non (si décoché l'image de fond du bandeau sera utilisée seulement pour les cours où une image de cours est définée).
+Ce réglage permet d'indiquer si l'image définie juste avant doit être prise en compte ou non (si décoché l'image de fond du bandeau sera utilisée seulement pour les cours où une image de cours est définie).
 
 Comment personnaliser le thème ?
 -----

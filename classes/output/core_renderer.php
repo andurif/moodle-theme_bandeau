@@ -16,11 +16,11 @@
 
 namespace theme_bandeau\output;
 
-use moodle_page;
 use moodle_url;
-use Mustache_Engine;
 use theme_boost\output\core_renderer as boost_renderer;
 use core_course\external\course_summary_exporter;
+
+defined('MOODLE_INTERNAL') || die;
 
 /**
  * Custom renderers (child of Boost theme renderer) to display our banner.
@@ -32,20 +32,6 @@ use core_course\external\course_summary_exporter;
  */
 class core_renderer extends boost_renderer
 {
-    /** @var plugin_mustache */
-    protected $plugin_mustache;
-
-    /**
-     * Constructor
-     *
-     * @param moodle_page $page the page we are doing output for.
-     * @param string $target one of rendering target constants.
-     */
-    public function __construct(moodle_page $page, $target = null)
-    {
-        parent::__construct($page, $target);
-    }
-
     /**
      * Wrapper for header elements.
      *
@@ -68,7 +54,7 @@ class core_renderer extends boost_renderer
             'has_links' => $this->has_links(),
             'courseurl' => $courseurl->out(),
         ];
-        
+
         return $this->render_from_template('theme_bandeau/page-header', $params);
     }
 
@@ -77,43 +63,42 @@ class core_renderer extends boost_renderer
      *
      * @return bool|string
      */
-    public function header_tools()
-    {
-        global $PAGE, $USER;
-        if ($PAGE->course->id == 1)
+    public function header_tools() {
+        global $PAGE;
+        if ($PAGE->course->id == 1) {
             return false;
+        }
 
         $links = [];
         $contents = [];
 
-	    // By default, we also call others functions called xxx_render_page_header_output() if there is some.
-	    // Warning: call these functions can cause a display conflict
+        // By default, we also call others functions called xxx_render_page_header_output() if there is some.
+        // Warning: call these functions can cause a display conflict.
         if ($pluginsfunction = get_plugins_with_function('render_page_header_output')) {
             foreach ($pluginsfunction as $plugintype => $plugins) {
                 foreach ($plugins as $pluginfunction) {
-                    if($pluginfunction()['contents'] != null && $pluginfunction()['links'] != null) {
+                    if ($pluginfunction()['contents'] != null && $pluginfunction()['links'] != null) {
                         $links = array_merge($links, $pluginfunction()['links']);
                         $contents = array_merge($contents, $pluginfunction()['contents']);
                     }
                 }
             }
         }
-	    // If you just want call the theme's function, comment the previous if section and uncomment the code section below
-	    /*$output = theme_bandeau_render_page_header_output();
+        // If you just want call the theme's function, comment the previous if section and uncomment the code section below.
+        /*$output = theme_bandeau_render_page_header_output();
         $links = $output['links'];
         $contents = $output['contents'];*/
 
-        if($this->has_links()) {
+        if ($this->has_links()) {
             foreach ($links as $index => $link) {
                 $links[$index]->index = $index;
                 $contents[$index]->index = $index;
             }
-        }
-        else {
+        } else {
             $links = [];
         }
 
-	    $courseurl = new moodle_url('/course/view.php', array('id' => $PAGE->course->id));
+        $courseurl = new moodle_url('/course/view.php', array('id' => $PAGE->course->id));
 
         return $this->render_from_template('theme_bandeau/page-header-tools', [
             "coursename" => $PAGE->course->fullname,
@@ -126,8 +111,7 @@ class core_renderer extends boost_renderer
     /**
      *  Shows only selected elements in the drawer
      */
-    protected function filter_drawer()
-    {
+    protected function filter_drawer() {
         global $PAGE;
 
         if ($PAGE->course->id > 1) {
@@ -138,9 +122,8 @@ class core_renderer extends boost_renderer
                     continue;
                 }
             }
-        }
-        else {
-            if(isset($PAGE->flatnav->get('mycourses')->children)) {
+        } else {
+            if (isset($PAGE->flatnav->get('mycourses')->children)) {
                 foreach ($PAGE->flatnav->get('mycourses')->children as $child) {
                     $PAGE->flatnav->remove($child->key);
                 }
@@ -155,8 +138,7 @@ class core_renderer extends boost_renderer
      * @return mixed|string|null
      * @throws \dml_exception
      */
-    public function get_course_image()
-    {
+    public function get_course_image() {
         global $PAGE;
         if ($PAGE->course->id == 1) {
             return null;
@@ -168,21 +150,20 @@ class core_renderer extends boost_renderer
 
         return $image;
     }
-    
+
     /**
      * Get the course pattern datauri to show on a course card.
      *
      * The datauri is an encoded svg that can be passed as a url.
-     * @param int $id Id to use when generating the pattern
+     * @param int $id Course id to use when generating the pattern
      * @return string datauri
      */
-    public function get_generated_image_for_id($id)
-    {
+    public function get_generated_image_for_id($id) {
         try {
             return (get_config('theme_bandeau', 'default_course_img') != '')
-                ? (new moodle_url(get_config('theme_bandeau', 'default_course_img')))->out() : parent::get_generated_image_for_id($id);
-        }
-        catch(\Exception $e) {
+                ? (new moodle_url(get_config('theme_bandeau', 'default_course_img')))->out()
+                : parent::get_generated_image_for_id($id);
+        } catch (\Exception $e) {
             parent::get_generated_image_for_id($id);
         }
     }
@@ -190,10 +171,9 @@ class core_renderer extends boost_renderer
     /**
      * Check if the user has manage links in the header.
      *
-     * @return boolean true if the user has links and false in other cases.
+     * @return boolean true if the user has manage links and false in other cases.
      */
-    public function has_links()
-    {
+    public function has_links() {
         global $PAGE;
         if ($PAGE->course->id == 1) {
             return false;

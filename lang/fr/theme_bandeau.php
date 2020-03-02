@@ -26,7 +26,7 @@
 // This line protects the file from being accessed by a URL directly.
 defined('MOODLE_INTERNAL') || die();
 
-//From Boost theme
+// From Boost theme.
 $string['advancedsettings'] = 'Réglages avancés';
 $string['brandcolor'] = 'Couleur principale';
 $string['brandcolor_desc'] = 'La couleur majeure du thème.';
@@ -47,14 +47,14 @@ $string['region-side-pre'] = 'Droite';
 $string['edit_mode'] = 'Mode édition';
 $string['privacy:metadata:preference:draweropennav'] = 'Le réglage utilisateur pour afficher ou cacher le tiroir de navigation du fait que le thème bandeau est dérivé du thème Boost.';
 
-//Configuration
+// Configuration.
 $string['bandeauheadersettings'] = 'Réglages bandeau de cours';
 $string['default_course_img'] = 'Image du cours par défaut';
 $string['default_course_img_desc'] = 'URL de l\'image utilisée par défaut dans l\'en-tête d\'un cours.';
 $string['show_default_course_img'] = 'Utiliser l\'image par défaut si aucune image n\'est définie pour le cours';
 $string['show_default_course_img_desc'] = 'Si ce paramètre est coché l\'image par défaut sera utilisée comme image pour le cours si aucune image n\'a été définie dans les paramètres du cours. Sinon aucune image ne sera visible.';
 
-//Items
+// Items.
 $string['manage'] = 'Gestion du cours';
 $string['import_export'] = 'Importer / Exporter';
 $string['edit_params'] = 'Modifier les paramètres du cours';

@@ -12,7 +12,8 @@ Presentation
 - Specific menu in the course header block. It displays possible recurrent actions on a course grouped by type of action. 
 - Possibility to pass on "Edition mode" more easily.
 - Possibility to keep menu on the top of the page even we scroll on the course.
-- Possibility to add a block more easily without passing on the left menu
+- Possibility to add a block more easily without passing on the left menu.
+- Possibility to return to course homepage more easily.
 - Displays in the header block bakground the picture choosed in the course configuration (since moodle 3.6 version, in other cases it will display default image you define in the theme settings).
 - Using of a default course picture in dashboard blocks (since moodle 3.7 version).
 
@@ -30,7 +31,7 @@ Installation
 > git clone https://github.com/andurif/moodle-theme_bandeau.git theme/bandeau
 
 - Download way:
-> Download the zip from https://github.com/andurif/moodle-theme_bandeau/archive/master.zip unzip it in theme/ folder and rename it "bandeau" if necessary.
+> Download the zip from https://github.com/andurif/moodle-theme_bandeau/archive/master.zip unzip it in theme/ folder and rename it "bandeau" if necessary or install it from the "Install plugin" page if you have the right permissions..
   
 2. Then visit your Admin Notifications page to complete the installation.
 
