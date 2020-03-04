@@ -17,8 +17,7 @@
 /**
  * Version details
  *
- * @package    theme
- * @subpackage bandeau
+ * @package    theme_bandeau
  * @author     Anthony Durif - Université Clermont Auvergne
  * @copyright  2019 Anthony Durif - Université Clermont Auvergne
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -26,11 +25,11 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version   = 2020022500;        // The current plugin version (Date: YYYYMMDDXX).
+$plugin->version   = 2020030300;        // The current plugin version (Date: YYYYMMDDXX).
 $plugin->requires  = 2016112900;        // Requires this Moodle version.
 $plugin->component = 'theme_bandeau'; // Full name of the plugin (used for diagnostics).
 $plugin->dependencies = [
     'theme_boost' => '2016120500'
 ];
-$plugin->release   = 'v3.8-r2';
+$plugin->release   = 'v3.8-r3';
 $plugin->maturity = MATURITY_STABLE;

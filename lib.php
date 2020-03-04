@@ -136,7 +136,7 @@ function theme_bandeau_get_links_html($conf) {
                 foreach ($element["content"]["categories"] as $category) {
                     $content->content .= "<div class='col'>
                         <div class='row mb-2'>
-                            <div class='col-2'>
+                            <div class='col-2 subcategory_title'>
                                 <strong>
                                     <i class=\"material-icons\">" . $category["icon"] . "</i> " . $category["label"] . "
                                 </strong>

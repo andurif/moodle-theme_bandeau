@@ -4,7 +4,7 @@
 
 .bandeau-page-header-tools {
     width: 100%;
-    background-color: rgba(255, 255 ,255 ,0.8);
+    background-color: rgba(255, 255, 255, 0.8);
 }
 
 .bandeau-page-header-tools .nav-item {
@@ -20,13 +20,13 @@
     border-radius: 0;
 }
 
-.bandeau-page-header-tools .nav-link.active {
+.bandeau-page-header-tools .nav-link.active, .bandeau-page-header-tools .nav-link:focus {
     background-color: $primary;
     color: $white;
     border-color: $primary;
 }
 
-.bandeau-page-header-tools .nav-link.active:hover {
+.bandeau-page-header-tools .nav-link.active:hover, .bandeau-page-header-tools .nav-link:focus, .bandeau-page-header-tools .nav-link:focus:hover {
     color: $white;
 }
 
@@ -118,4 +118,11 @@ a.home-link {
 a.home-link:hover {
     background-color: $primary-light;
     color: $primary;
+}
+
+@media only screen and (max-width: 1380px) {
+    .col-2.subcategory_title {
+        max-width: 100%;
+        flex: inherit;
+    }
 }

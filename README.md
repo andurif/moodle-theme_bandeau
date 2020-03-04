@@ -10,7 +10,7 @@ It was also important for us to be able to display easily some personnal actions
 Presentation
 ------------
 - Specific menu in the course header block. It displays possible recurrent actions on a course grouped by type of action. 
-- Possibility to pass on "Edition mode" more easily.
+- Possibility to pass on "Editing mode" more easily.
 - Possibility to keep menu on the top of the page even we scroll on the course.
 - Possibility to add a block more easily without passing on the left menu.
 - Possibility to return to course homepage more easily.
