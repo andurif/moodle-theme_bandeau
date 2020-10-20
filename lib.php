@@ -408,6 +408,15 @@ function theme_bandeau_build_header_links() {
                 "label" => get_string("pluginname", "report_competency")
             ];
         }
+
+        if (has_capability('gradereport/grader:view', context_course::instance($COURSE->id))) {
+            $links["grades"]["title"] = [
+                "icon" => "grid_on",
+                "label" => get_string("gradebook", "core_admin"),
+                "url" => new moodle_url('/grade/report/grader/index.php', ['id' => $COURSE->id])
+            ];
+        }
+
     }
 
     return $links;
@@ -419,7 +428,7 @@ function theme_bandeau_build_header_links() {
  * @return array|null
  */
 function theme_bandeau_render_page_header_output() {
-    $items = ["home", "manage", "users", "questions", "rapport", "admin", "add_block", "edit_mode"];
+    $items = ["home", "manage", "users", "questions", "grades", "rapport", "admin", "add_block", "edit_mode"];
     $links = theme_bandeau_build_header_links();
     $conf = [];
 
