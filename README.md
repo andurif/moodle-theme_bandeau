@@ -20,7 +20,7 @@ Presentation
 Requirements
 ------------
 - Moodle 3.3 (build 2017051500) or later.<br/>
--> Tests on Moodle 3.3 to 3.8.1 versions (warning all features will maybe not be available in moodle 3.3.x to 3.5.x versions).<br/>
+-> Tests on Moodle 3.3 to 3.9.1 versions (warning all features will maybe not be available in moodle 3.3.x to 3.5.x versions).<br/>
 - Same other requirements than Boost theme.
 
 Installation

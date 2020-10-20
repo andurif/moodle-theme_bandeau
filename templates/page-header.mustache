@@ -46,6 +46,11 @@
                 <div id="course-header">
                     {{{course_header}}}
                 </div>
+                {{#headeractions}}
+                    <div class="header-actions-container flex-shrink-0 content-bank-menu" data-region="header-actions-container">
+                        <div class="header-action ml-2">{{{.}}}</div>
+                    </div>
+                {{/headeractions}}
             </div>
             {{#tools}}
                 {{^has_links}}

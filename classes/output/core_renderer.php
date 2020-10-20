@@ -64,6 +64,11 @@ class core_renderer extends boost_renderer
             'courseurl' => $courseurl->out(),
         ];
 
+        // Displays options for the content bank
+        if(strpos($this->page->url->get_path(), "contentbank/view") !== false) {
+            $params['headeractions'] = $this->page->get_header_actions();
+        }
+
         return $this->render_from_template('theme_bandeau/page-header', $params);
     }
 
@@ -193,6 +198,16 @@ class core_renderer extends boost_renderer
 
         // If the user has only one link we will consider like he has none because the course homepage link is always present.
         return (count($links) > 1);
+    }
+
+    /**
+     * Returns HTML to display a "Turn editing on/off" button in a form.
+     * We do not display the button (visible since 3.9 version) because we display it in the actions header bar.
+     * @param moodle_url $url
+     * @return string
+     */
+    public function edit_button(moodle_url $url) {
+        return '';
     }
 }
 

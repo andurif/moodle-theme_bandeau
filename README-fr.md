@@ -20,7 +20,7 @@ Présentation
 Pré-requis
 ------------
 - Moodle en version 3.3 (build 2017051500) ou plus récente.<br/>
--> Tests effectués sur des versions 3.3 à 3.8.1 (attention toutes les fonctionnalités ne seront pas forcément présentes pour les versions 3.5.x à 3.5.x).<br/>
+-> Tests effectués sur des versions 3.3 à 3.9.1 (attention toutes les fonctionnalités ne seront pas forcément présentes pour les versions 3.5.x à 3.5.x).<br/>
 - Même autres pré-requis que pour le thème Boost.
 
 Installation
