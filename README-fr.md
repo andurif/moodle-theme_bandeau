@@ -105,6 +105,7 @@ Pistes d'améliorations
 - Le plus possible faire des notions d'héritage par rapport au thème Boost (provider par ex, etc...)
 - Améliorer l'accessibilité (title...)
 - Faire en sorte qu'il n'y est pas de conflit si un autre plugin possède une fonction du type xxx_render_page_header_output().
+- Améliorer la visibilité du bouton d'édition au niveau du carnet de notes et de la banque de contenus (souci de visibilité en fonction de l'image de cours utilisée).
 - Bug: Si le bandeau de gauche est ouvert et le bandeau en position "sticky" le bouton "Mode édition" n'est plus visible.
 - Bug: Si l'on scrolle dans le cours mais que celui-ci n'est pas trop long, possibilité de voir le bandeau freezer. 
 
