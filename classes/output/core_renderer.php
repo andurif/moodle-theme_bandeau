@@ -47,15 +47,15 @@ class core_renderer extends boost_renderer
      * @return string HTML to display the main header.
      */
     public function full_header() {
-        global $PAGE, $USER;
+        global $USER;
 
         $this->filter_drawer();
-        $courseurl = new moodle_url('/course/view.php', array('id' => $PAGE->course->id));
+        $courseurl = new moodle_url('/course/view.php', array('id' => $this->page->course->id));
 
         $params = [
             'context_header_settings_menu' => (is_primary_admin($USER->id) ? $this->context_header_settings_menu() : false),
             'context_header' => $this->context_header(),
-            'navbar' => (empty($PAGE->layout_options['nonavbar']) ? $this->navbar() : false),
+            'navbar' => (empty($this->page->layout_options['nonavbar']) ? $this->navbar() : false),
             'page_heading_button' => str_replace('btn-secondary', 'btn-primary', $this->page_heading_button()),
             'course_header' => $this->course_header(),
             'tools' => $this->header_tools(),
@@ -64,7 +64,7 @@ class core_renderer extends boost_renderer
             'courseurl' => $courseurl->out(),
         ];
 
-        // Displays options for the content bank
+        // Displays options for the content bank.
         if(strpos($this->page->url->get_path(), "contentbank/view") !== false) {
             $params['headeractions'] = $this->page->get_header_actions();
         }
@@ -78,8 +78,7 @@ class core_renderer extends boost_renderer
      * @return bool|string
      */
     public function header_tools() {
-        global $PAGE;
-        if ($PAGE->course->id == 1) {
+        if ($this->page->course->id == 1) {
             return false;
         }
 
@@ -112,10 +111,10 @@ class core_renderer extends boost_renderer
             $links = [];
         }
 
-        $courseurl = new moodle_url('/course/view.php', array('id' => $PAGE->course->id));
+        $courseurl = new moodle_url('/course/view.php', array('id' => $this->page->course->id));
 
         return $this->render_from_template('theme_bandeau/page-header-tools', [
-            "coursename" => $PAGE->course->fullname,
+            "coursename" => $this->page->course->fullname,
             "courseurl" => $courseurl->out(),
             "links" => $links,
             "contents" => $contents,
@@ -126,24 +125,22 @@ class core_renderer extends boost_renderer
      *  Shows only selected elements in the drawer
      */
     protected function filter_drawer() {
-        global $PAGE;
-
-        if ($PAGE->course->id > 1) {
-            foreach ($PAGE->flatnav->get_key_list() as $key) {
-                $element = $PAGE->flatnav->get($key);
+        if ($this->page->course->id > 1) {
+            foreach ($this->page->flatnav->get_key_list() as $key) {
+                $element = $this->page->flatnav->get($key);
                 if ((true !== $element->is_section()) && ('coursehome' != $key) && ('addblock' != $key)) {
-                    $PAGE->flatnav->remove($key);
+                    $this->page->flatnav->remove($key);
                     continue;
                 }
             }
         } else {
-            if (isset($PAGE->flatnav->get('mycourses')->children)) {
-                foreach ($PAGE->flatnav->get('mycourses')->children as $child) {
-                    $PAGE->flatnav->remove($child->key);
+            if (isset($this->page->flatnav->get('mycourses')->children)) {
+                foreach ($this->page->flatnav->get('mycourses')->children as $child) {
+                    $this->page->flatnav->remove($child->key);
                 }
-                $PAGE->flatnav->remove('mycourses');
+                $this->page->flatnav->remove('mycourses');
             }
-            $PAGE->flatnav->remove('home');
+            $this->page->flatnav->remove('home');
         }
     }
 
@@ -153,13 +150,12 @@ class core_renderer extends boost_renderer
      * @throws \dml_exception
      */
     public function get_course_image() {
-        global $PAGE;
-        if ($PAGE->course->id == 1) {
+        if ($this->page->course->id == 1) {
             return null;
         }
 
         $image = (class_exists(course_summary_exporter::class) && method_exists(course_summary_exporter::class, 'get_course_image'))
-            ? course_summary_exporter::get_course_image(get_course($PAGE->course->id)) : null;
+            ? course_summary_exporter::get_course_image(get_course($this->page->course->id)) : null;
         $image = (!$image) ? get_config('theme_bandeau', 'default_course_img') : $image;
 
         return $image;
@@ -188,8 +184,7 @@ class core_renderer extends boost_renderer
      * @return boolean true if the user has manage links and false in other cases.
      */
     public function has_links() {
-        global $PAGE;
-        if ($PAGE->course->id == 1) {
+        if ($this->page->course->id == 1) {
             return false;
         }
 

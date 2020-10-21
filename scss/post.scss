@@ -20,13 +20,16 @@
     border-radius: 0;
 }
 
-.bandeau-page-header-tools .nav-link.active, .bandeau-page-header-tools .nav-link:focus {
+.bandeau-page-header-tools .nav-link.active,
+.bandeau-page-header-tools .nav-link:focus {
     background-color: $primary;
     color: $white;
     border-color: $primary;
 }
 
-.bandeau-page-header-tools .nav-link.active:hover, .bandeau-page-header-tools .nav-link:focus, .bandeau-page-header-tools .nav-link:focus:hover {
+.bandeau-page-header-tools .nav-link.active:hover,
+.bandeau-page-header-tools .nav-link:focus,
+.bandeau-page-header-tools .nav-link:focus:hover {
     color: $white;
 }
 
