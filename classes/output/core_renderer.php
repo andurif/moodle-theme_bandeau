@@ -50,6 +50,7 @@ class core_renderer extends boost_renderer
         global $USER;
 
         $this->filter_drawer();
+        dump($this->page->course->id);
         $courseurl = new moodle_url('/course/view.php', array('id' => $this->page->course->id));
 
         $params = [
