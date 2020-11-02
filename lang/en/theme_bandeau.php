@@ -45,7 +45,7 @@ $string['rawscsspre_desc'] = 'In this field you can provide initialising SCSS co
 $string['region-side-pre'] = 'Right';
 
 $string['edit_mode'] = 'Edit mode';
-$string['privacy:metadata:preference:draweropennav'] = 'The user\'s preference for hiding or showing the drawer menu navigation beacause bandeau theme extends Boost theme.';
+$string['privacy:metadata:preference:draweropennav'] = 'The user\'s preference for hiding or showing the drawer menu navigation because bandeau theme extends Boost theme.';
 
 // Configuration.
 $string['bandeauheadersettings'] = 'Header settings';
