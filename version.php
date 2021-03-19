@@ -25,11 +25,11 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version   = 2020101100;        // The current plugin version (Date: YYYYMMDDXX).
+$plugin->version   = 2021031500;        // The current plugin version (Date: YYYYMMDDXX).
 $plugin->requires  = 2016112900;        // Requires this Moodle version.
 $plugin->component = 'theme_bandeau'; // Full name of the plugin (used for diagnostics).
 $plugin->dependencies = [
     'theme_boost' => '2016120500'
 ];
-$plugin->release   = 'v3.9-r2';
+$plugin->release   = 'v3.10-r1';
 $plugin->maturity = MATURITY_STABLE;
