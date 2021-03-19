@@ -330,12 +330,15 @@ function theme_bandeau_build_header_links() {
     }
 
     if (has_capability('enrol/manual:enrol', context_course::instance($COURSE->id))) {
-        $enrol = $DB->get_record('enrol', array('courseid' => $COURSE->id, "enrol" => "manual"), 'id');
-        $links["users"]["categories"]["users"]["links"][] = [
-            "icon" => "",
-            "url" => new moodle_url('/enrol/manual/manage.php', ['enrolid' => $enrol->id]),
-            "label" => get_string("pluginname", "enrol_manual")
-        ];
+        $enrol = $DB->get_record('enrol', array('courseid' => $COURSE->id, "enrol" => "manual", 'status' => 0), '*');
+        if ($enrol) {
+            // We check that manual enrol is enable in the enrolment methods of the course.
+            $links["users"]["categories"]["users"]["links"][] = [
+                "icon" => "",
+                "url" => new moodle_url('/enrol/manual/manage.php', ['enrolid' => $enrol->id]),
+                "label" => get_string("pluginname", "enrol_manual")
+            ];
+        }
         $links["users"]["categories"]["users"]["links"][]  = [
             "icon" => "",
             "url" => new moodle_url('/enrol/editinstance.php', ['courseid' => $COURSE->id, "type" => "cohort"]),
