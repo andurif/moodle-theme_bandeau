@@ -50,7 +50,6 @@ class core_renderer extends boost_renderer
         global $USER;
 
         $this->filter_drawer();
-        dump($this->page->course->id);
         $courseurl = new moodle_url('/course/view.php', array('id' => $this->page->course->id));
 
         $params = [
@@ -64,11 +63,6 @@ class core_renderer extends boost_renderer
             'has_links' => $this->has_links(),
             'courseurl' => $courseurl->out(),
         ];
-
-        // Displays options for the content bank.
-        if(strpos($this->page->url->get_path(), "contentbank/view") !== false) {
-            $params['headeractions'] = $this->page->get_header_actions();
-        }
 
         return $this->render_from_template('theme_bandeau/page-header', $params);
     }
@@ -204,6 +198,21 @@ class core_renderer extends boost_renderer
      */
     public function edit_button(moodle_url $url) {
         return '';
+    }
+
+    /**
+     * Returns course-specific information to be output immediately above content on any course page
+     * (for the current course)
+     *
+     * @param bool $onlyifnotcalledbefore output content only if it has not been output before
+     * @return string
+     */
+    public function course_content_header($onlyifnotcalledbefore = false) {
+        if (strpos($this->page->url->get_path(), "contentbank/view") !== false) {
+            return "<div style='margin-left: 50px; margin-bottom: 20px;'>" . $this->page->get_header_actions()[0] . "</div>" . parent::course_content_header($onlyifnotcalledbefore) . "<br/><br/>";
+        }
+
+        return parent::course_content_header($onlyifnotcalledbefore);
     }
 }
 
