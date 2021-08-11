@@ -20,7 +20,7 @@ Presentation
 Requirements
 ------------
 - Moodle 3.3 (build 2017051500) or later.<br/>
--> Tests on Moodle 3.3 to 3.10.1 versions (warning all features will maybe not be available in moodle 3.3.x to 3.5.x versions).<br/>
+-> Tests on Moodle 3.3 to 3.11.0 versions (warning all features will maybe not be available in moodle 3.3.x to 3.5.x versions).<br/>
 - Same other requirements than Boost theme.
 
 Installation
@@ -31,7 +31,7 @@ Installation
 > git clone https://github.com/andurif/moodle-theme_bandeau.git theme/bandeau
 
 - Download way:
-> Download the zip from https://github.com/andurif/moodle-theme_bandeau/archive/master.zip unzip it in theme/ folder and rename it "bandeau" if necessary or install it from the "Install plugin" page if you have the right permissions..
+> Download the zip from <a href="https://github.com/andurif/moodle-theme_bandeau/archive/refs/heads/master.zip" target="_blank">https://github.com/andurif/moodle-theme_bandeau/archive/refs/heads/master.zip</a> unzip it in theme/ folder and rename it "bandeau" if necessary or install it from the "Install plugin" page if you have the right permissions.
   
 2. Then visit your Admin Notifications page to complete the installation.
 
@@ -104,10 +104,8 @@ Possible improvements
 - Use as many as possible heritage from Boost theme (provider, etc...)
 - Improve accessibility (title...)
 - Try to avoid conflicts if there is a xxx_render_page_header_output() function in another plugin.
-- Find a better place for the Editing button in gradebook and content bank (not very visible according to course image).
-- Bug: If the left menu is open and menu in "sticky" position the "Edit mode" button is no longer visible.
 - Bug: If we scroll into the course and it is not very long, the banner can freeze.
 
 About us
 ------
-<a href="https://www.uca.fr">Université Clermont Auvergne</a> - 2020.<br/>
+<a href="https://www.uca.fr" target="_blank">Université Clermont Auvergne</a> - 2020.<br/>

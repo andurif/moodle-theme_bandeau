@@ -20,7 +20,7 @@ Présentation
 Pré-requis
 ------------
 - Moodle en version 3.3 (build 2017051500) ou plus récente.<br/>
--> Tests effectués sur des versions 3.3 à 3.10.1 (attention toutes les fonctionnalités ne seront pas forcément présentes pour les versions 3.5.x à 3.5.x).<br/>
+-> Tests effectués sur des versions 3.3 à 3.11.0.(attention toutes les fonctionnalités ne seront pas forcément présentes pour les versions 3.5.x à 3.5.x).<br/>
 - Même autres pré-requis que pour le thème Boost.
 
 Installation
@@ -31,7 +31,7 @@ Installation
 > git clone https://github.com/andurif/moodle-theme_bandeau.git theme/bandeau
 
 - Téléchargement:
-> Télécharger le zip depuis https://github.com/andurif/moodle-theme_bandeau/archive/master.zip, dézipper l'archive dans le dossier theme/ et renommer le si besoin le dossier en "bandeau" ou installez-le depuis la page d'installation des plugins si vous possédeez les bons droits..
+> Télécharger le zip depuis <a href="https://github.com/andurif/moodle-theme_bandeau/archive/refs/heads/master.zip" target="_blank"> https://github.com/andurif/moodle-theme_bandeau/archive/refs/heads/master.zip </a>, dézipper l'archive dans le dossier theme/ et renommer le si besoin le dossier en "bandeau" ou installez-le depuis la page d'installation des plugins si vous possédeez les bons droits..
   
 2. Aller sur la page de notifications pour finaliser l'installation du plugin.
 
@@ -105,10 +105,8 @@ Pistes d'améliorations
 - Le plus possible faire des notions d'héritage par rapport au thème Boost (provider par ex, etc...)
 - Améliorer l'accessibilité (title...)
 - Faire en sorte qu'il n'y est pas de conflit si un autre plugin possède une fonction du type xxx_render_page_header_output().
-- Améliorer la visibilité du bouton d'édition au niveau du carnet de notes et de la banque de contenus (souci de visibilité en fonction de l'image de cours utilisée).
-- Bug: Si le bandeau de gauche est ouvert et le bandeau en position "sticky" le bouton "Mode édition" n'est plus visible.
 - Bug: Si l'on scrolle dans le cours mais que celui-ci n'est pas trop long, possibilité de voir le bandeau freezer. 
 
 A propos
 ------
-<a href="https://www.uca.fr">Université Clermont Auvergne</a> - 2020.<br/>
+<a href="https://www.uca.fr" target="_blank">Université Clermont Auvergne</a> - 2020.<br/>
