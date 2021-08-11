@@ -75,11 +75,12 @@
     }
 
     window.onload = function () {
-        const menuButton = document.getElementById('toggle-main-menu-button');
+        const menuButton = document.querySelector('button[data-preference="drawer-open-nav"]')
         menuButton.addEventListener('click', function(e) {
-            const toolHeader = document.getElementById('uca-page-header-tools')
-            const isMenuOpened = menuButton.getAttribute('aria-expanded') === 'true'
-            if (!isMenuOpened) {
+            const toolHeader = document.getElementById('bandeau-page-header-tools');
+            // const navDrawer = document.getElementById('nav-drawer');
+            // const isMenuOpened = (navDrawer.classList.contains('closed'));
+            if (!toolHeader.classList.contains('menu-openned')) {
                 toolHeader.classList.add('menu-openned')
             } else {
                 toolHeader.classList.remove('menu-openned')

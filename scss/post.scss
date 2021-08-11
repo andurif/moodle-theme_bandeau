@@ -81,9 +81,10 @@
     background-color: $gray-100;
     width: unset;
     left: 15px;
+    right: 0;
     transition: left 500ms;
 
-    &.menu-opened {
+    &.menu-openned {
         left: 300px;
     }
 }
@@ -94,6 +95,10 @@
 
 .sticky #scroll_top {
     display: flex;
+
+    .navbar-brand.p-l-2 {
+        padding-left: 2rem!important;
+    }
 }
 
 #scroll_top {
