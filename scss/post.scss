@@ -111,7 +111,7 @@
     color: #fff;
 }
 
-.bandeau-header .breadcrumb-button .breadcrumb-button-right {
+.bandeau-header .breadcrumb-button, .breadcrumb-button-right {
     margin-top: 0;
     display: flex;
     justify-content: flex-end;
