@@ -27,16 +27,20 @@
                         <div class="breadcrumb-nav float-left" {{#tools}}{{#course_image}}style="max-width: 67%;"{{/course_image}}{{/tools}}>
                             {{{navbar}}}
                         </div>
-                        <div class="breadcrumb-button breadcrumb-button-right float-right">
+                        {{#is_not_on_course_page}}
+                            <div class="breadcrumb-button breadcrumb-button-right">
+                                {{{page_heading_button}}}
+                            </div>
+                        {{/is_not_on_course_page}}
+                    </div>
+                {{/navbar}}
+                {{#is_not_on_course_page}}
+                    {{^navbar}}
+                        <div class="breadcrumb-button">
                             {{{page_heading_button}}}
                         </div>
-                    </div>
-                {{/navbar}}
-                {{^navbar}}
-                    <div class="breadcrumb-button">
-                        {{{page_heading_button}}}
-                    </div>
-                {{/navbar}}
+                    {{/navbar}}
+                {{/is_not_on_course_page}}
                 <!--<div class="float-right context-header-settings-menu">
                     {{{context_header_settings_menu}}}
                 </div>-->
