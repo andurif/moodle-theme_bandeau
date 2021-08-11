@@ -42,6 +42,24 @@ defined('MOODLE_INTERNAL') || die;
 class core_renderer extends boost_renderer
 {
     /**
+     * core_renderer constructor.
+     * @param moodle_page $page
+     * @param null $target
+     */
+    public function __construct(moodle_page $page, $target = null) {
+        parent::__construct($page, $target);
+    }
+
+    /**
+     * Gets the HTML for the page heading button.
+     *
+     * @return string HTML to display for the heading button.
+     */
+    public function get_page_heading_button() {
+        return ($this->page->course->id === SITEID) ? '' : $this->page_heading_button();
+    }
+
+    /**
      * Wrapper for header elements.
      *
      * @return string HTML to display the main header.
@@ -62,6 +80,7 @@ class core_renderer extends boost_renderer
             'course_image' => $this->get_course_image(),
             'has_links' => $this->has_links(),
             'courseurl' => $courseurl->out(),
+            'is_not_on_course_page' => ($this->page->course->id === SITEID),
         ];
 
         return $this->render_from_template('theme_bandeau/page-header', $params);
@@ -73,6 +92,8 @@ class core_renderer extends boost_renderer
      * @return bool|string
      */
     public function header_tools() {
+        global $USER;
+
         if ($this->page->course->id == 1) {
             return false;
         }
@@ -107,12 +128,14 @@ class core_renderer extends boost_renderer
         }
 
         $courseurl = new moodle_url('/course/view.php', array('id' => $this->page->course->id));
+        $is_menu_opened = key_exists('drawer-open-nav', get_user_preferences()) ? (get_user_preferences('drawer-open-nav') === 'true') : true;
 
         return $this->render_from_template('theme_bandeau/page-header-tools', [
             "coursename" => $this->page->course->fullname,
             "courseurl" => $courseurl->out(),
             "links" => $links,
             "contents" => $contents,
+            "is_menu_openned" => $is_menu_opened,
         ]);
     }
 

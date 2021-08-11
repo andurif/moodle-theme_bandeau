@@ -18,7 +18,7 @@
     @template theme_bandeau/page-header-tools
     page header tools.
 }}
-<div class="bandeau-page-header-tools" id="bandeau-page-header-tools">
+<div class="bandeau-page-header-tools {{#is_menu_openned}}menu-openned{{/is_menu_openned}}" id="bandeau-page-header-tools">
     <div id="scroll_top">
         <a class="nav-link scroll_top_link" href="#" onclick="topFunction()" title="{{#str}}back_top, theme_bandeau{{/str}}"><i class="material-icons">arrow_upward</i></a>
         {{^links}}
@@ -30,12 +30,12 @@
         {{#links}}
             {{^href}}
                 <li class="nav-item">
-                    <a class="nav-link" href="#bandeau_tab_{{index}}" data-toggle="tab" role="tab" aria-expanded="false">{{{content}}}</a>
+                    <a class="nav-link" href="#bandeau_tab_{{index}}" title="{{{title}}}" data-toggle="tab" role="tab" aria-expanded="false">{{{content}}}</a>
                 </li>
             {{/href}}
             {{#direct}}
                 <li class="nav-item {{#edit}}ml-auto{{/edit}} ">
-                    <a class="nav-link {{class}}" href="{{{href}}}">{{{content}}}{{#image}} {{#pix}} {{image}} , theme_bandeau {{/pix}} {{/image}}</a>
+                    <a class="nav-link {{class}}" href="{{{href}}}" title="{{{title}}}">{{{content}}}{{#image}} {{#pix}} {{image}} , theme_bandeau {{/pix}} {{/image}}</a>
                 </li>
             {{/direct}}
         {{/links}}
@@ -75,6 +75,17 @@
     }
 
     window.onload = function () {
+        const menuButton = document.getElementById('toggle-main-menu-button');
+        menuButton.addEventListener('click', function(e) {
+            const toolHeader = document.getElementById('uca-page-header-tools')
+            const isMenuOpened = menuButton.getAttribute('aria-expanded') === 'true'
+            if (!isMenuOpened) {
+                toolHeader.classList.add('menu-openned')
+            } else {
+                toolHeader.classList.remove('menu-openned')
+            }
+        });
+
         $('#bandeau-page-header-tools a[role="tab"]').click(function (e) {
             if($(this).hasClass('active')){
                 e.preventDefault();

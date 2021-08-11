@@ -77,9 +77,15 @@
 .sticky {
     position: fixed;
     top: 50px;
-    width: 100%;
     z-index: 100;
     background-color: $gray-100;
+    width: unset;
+    left: 15px;
+    transition: left 500ms;
+
+    &.menu-opened {
+        left: 300px;
+    }
 }
 
 .sticky .tab-pane {
@@ -132,4 +138,25 @@ a.home-link:hover {
 
 .header-actions-container.flex-shrink-0.content-bank-menu #region-main-settings-menu {
     float: right;
+}
+
+#region-main {
+    max-width: 100%;
+
+    .gradeparent {
+        overflow: auto;
+    }
+
+    .heading-button {
+        float: right;
+        margin-top: 2em;
+        margin-bottom: 1em;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+
+        .singlebutton {
+            float: right;
+        }
+    }
 }
