@@ -210,7 +210,7 @@ class core_renderer extends boost_renderer
         $links = $output['links'];
 
         // If the user has only one link we will consider like he has none because the course homepage link is always present.
-        return (count($links) > 1);
+        return (isset($links) && count($links) > 1);
     }
 
     /**

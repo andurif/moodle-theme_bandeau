@@ -129,9 +129,9 @@ function theme_bandeau_get_links_html($conf) {
             $links[] = $link;
 
             $content = new \StdClass();
-            $content->content = ($element["content"]["text"] != "")
+            $content->content = (isset($element["content"]) && $element["content"]["text"] != "")
                 ? '<blockquote>' . $element["content"]["text"] . '</blockquote>' : "";
-            if (isset($element["content"]["categories"])) {
+            if (isset($element["content"]) && isset($element["content"]["categories"])) {
                 $content->content .= "<div class='row'>";
                 foreach ($element["content"]["categories"] as $category) {
                     $content->content .= "<div class='col'>
@@ -154,7 +154,7 @@ function theme_bandeau_get_links_html($conf) {
                 $content->content .= "</div>";
             }
 
-            if (isset($element["content"]["links"])) {
+            if (isset($element["content"]) && isset($element["content"]["links"])) {
                 foreach ($element["content"]["links"] as $link) {
                     $content->content .= "<a href='" . $link["url"] . "' class='mr-4'>
                         <i class=\"material-icons\">" . $link["icon"] . "</i> " . $link["label"] . "
