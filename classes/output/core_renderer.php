@@ -84,6 +84,11 @@ class core_renderer extends boost_renderer
             'is_not_on_course_page' => ($this->page->course->id === SITEID),
         ];
 
+        // If no image is defined (course image or default image) we use the course pattern datauri.
+        if (!$params['course_image'] && !$params['is_not_on_course_page']) {
+            $params['course_image'] = $this->get_generated_image_for_id($this->page->course->id);
+        }
+
         return $this->render_from_template('theme_bandeau/page-header', $params);
     }
 
