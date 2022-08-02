@@ -134,6 +134,21 @@ a.home-link:hover {
     color: $primary;
 }
 
+@media(max-width: 767.98px) {
+    a.home-link {
+        background-color: $primary !important;
+
+        &:hover {
+            background-color: $primary-light !important;
+            color: $primary !important;
+        }
+
+        i {
+            color: white !important;
+        }
+    }
+}
+
 @media only screen and (max-width: 1380px) {
     .col-2.subcategory_title {
         max-width: 100%;

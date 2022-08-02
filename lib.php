@@ -105,11 +105,12 @@ function theme_bandeau_get_links_html($conf) {
             $link->href = "";
 
             if (isset($element["link"]["edit"])) {
-                $link->content = $element["link"]["label"];
+                $link->content = "<span class=\"d-none d-lg-block\">" . $element["link"]["label"] . "</span>";
                 $link->image = "t/edit_mode_".$element["link"]["edit"];
                 $link->class = "edit_mode ".$element["link"]["edit"];
             } else {
-                $link->content = "<i class=\"material-icons\">" . $element["link"]["icon"] . "</i> " . $element["link"]["label"];
+                $link->content = "<i class=\"material-icons\">" . $element["link"]["icon"] . "</i> 
+                        <span class=\"d-none d-lg-block\">" . $element["link"]["label"] . "</span>";
             }
 
             if (isset($element["home"]) && $element["home"]) {

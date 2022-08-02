@@ -30,12 +30,12 @@
         {{#links}}
             {{^href}}
                 <li class="nav-item">
-                    <a class="nav-link" href="#bandeau_tab_{{index}}" title="{{{title}}}" data-toggle="tab" role="tab" aria-expanded="false">{{{content}}}</a>
+                    <a class="nav-link" href="#bandeau_tab_{{index}}" title="{{{title}}}" data-toggle="tab" role="tab" aria-expanded="false" style="display: flex;">{{{content}}}</a>
                 </li>
             {{/href}}
             {{#direct}}
                 <li class="nav-item {{#edit}}ml-auto{{/edit}} ">
-                    <a class="nav-link {{class}}" href="{{{href}}}" title="{{{title}}}">{{{content}}}{{#image}} {{#pix}} {{image}} , theme_bandeau {{/pix}} {{/image}}</a>
+                    <a class="nav-link {{class}}" href="{{{href}}}" title="{{{title}}}" style="display: flex;">{{{content}}}{{#image}} {{#pix}} {{image}} , theme_bandeau {{/pix}} {{/image}}</a>
                 </li>
             {{/direct}}
         {{/links}}
