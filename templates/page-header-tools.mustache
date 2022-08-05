@@ -88,13 +88,12 @@
         });
 
         $('#bandeau-page-header-tools a[role="tab"]').click(function (e) {
-            if($(this).hasClass('active')){
+            if ($(this).hasClass('active')) {
                 e.preventDefault();
                 e.stopPropagation();
                 $( $(this).attr('href') ).removeClass('active').removeClass('show');
                 $(this).removeClass('active').removeClass('show');
-            }
-            else {
+            } else {
                 $(this).tab('show');
             }
         });

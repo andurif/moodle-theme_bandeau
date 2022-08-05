@@ -20,7 +20,8 @@ Presentation
 Requirements
 ------------
 - Moodle 3.3 (build 2017051500) or later.<br/>
--> Tests on Moodle 3.3 to 3.11.0 versions (warning all features will maybe not be available in moodle 3.3.x to 3.5.x versions).<br/>
+-> Tests on Moodle 3.3 to 3.11.8 versions (warning all features will maybe not be available in moodle 3.3.x to 3.5.x versions).<br/>
+-> A study is currently underway to determine how to update and to make compatible (or not) the theme with moodle 4.<br/>
 - Same other requirements than Boost theme.
 
 Installation
@@ -108,4 +109,4 @@ Possible improvements
 
 About us
 ------
-<a href="https://www.uca.fr" target="_blank">Université Clermont Auvergne</a> - 2020.<br/>
+<a href="https://www.uca.fr" target="_blank">Université Clermont Auvergne</a> - 2022.<br/>
