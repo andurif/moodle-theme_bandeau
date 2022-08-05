@@ -20,6 +20,10 @@
     border-radius: 0;
 }
 
+.bandeau-page-header-tools .nav-tabs {
+    margin-left: 0;
+}
+
 .bandeau-page-header-tools .nav-link.active,
 .bandeau-page-header-tools .nav-link:focus {
     background-color: $primary;
